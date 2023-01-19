@@ -26,6 +26,19 @@ class WeatherState extends Equatable {
     Weather? weather,
   }) : weather = weather ?? Weather.empty;
 
+  WeatherState copyWith({
+    WeatherStatus? status,
+    TemperatureUnits? temperatureUnits,
+    Weather? weather,
+  }) {
+    return WeatherState(
+      status: status ?? this.status,
+      temperatureUnits: temperatureUnits ?? this.temperatureUnits,
+      weather: weather ?? this.weather,
+    );
+  }
+
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [status, temperatureUnits, weather];
 }
